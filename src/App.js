@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router} from 'react-router-dom'
+import Navbar from './components/Navbar'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>
-          React application - Gamers
-        </h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar/>
+      </Router>
+
+      <h1>GAMERS</h1>
+      <h2>Tienda Online</h2>
+
     </div>
   );
 }
