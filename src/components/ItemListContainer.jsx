@@ -1,10 +1,9 @@
 import React from 'react'
 
-const ItemListContainer = ({title, card}) => {
+const ItemListContainer = ({title}) => {
   return (
     <div>
         <h1>{title}</h1>
-        <h2>{card}</h2>
     </div>
   )
 }

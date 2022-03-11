@@ -5,11 +5,10 @@ import Item from './components/Item'
 
 function App() {
   const title= "Bienvenido a Gamers"
-  const card = 'Soy el producto'
   return (
     <div className="App">
       <Navbar/>
-      <ItemListContainer title={title} card={card}/>
+      <ItemListContainer title={title}/>
       <Item/>
     </div>
   );
