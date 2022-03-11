@@ -3,8 +3,8 @@ import CartWidget from './CartWidget'
 
 const Navbar = () => {
   return (
-    <div className="px-5 bg-light">
-        <nav className="navbar navbar-expand-lg navbar-light">
+    <div className="d-flex justify-content-between align-items-center px-5 bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                     <img src='./logo-gamers.png' width='80'/>
@@ -21,13 +21,13 @@ const Navbar = () => {
                             <a className="nav-link" href="#">TIENDA</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">SALE</a>
+                            <a className="nav-link" href="#">NOSOTROS</a>
                         </li>
                     </ul>
                 </div>
             </div>
-        <CartWidget/>
         </nav>
+    <CartWidget/>
     </div>
   )
 }

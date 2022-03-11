@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
+import Item from './components/Item'
 
 function App() {
   const title= "Bienvenido a Gamers"
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <ItemListContainer title={title} card={card}/>
+      <Item/>
     </div>
   );
 }
