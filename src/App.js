@@ -1,14 +1,15 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
-import Item from './components/Item'
+import Item from './components/Item';
 
 function App() {
-  const title= "Bienvenido a Gamers"
   return (
     <div className="App">
       <Navbar/>
-      <ItemListContainer title={title}/>
+      <ItemListContainer greeting="Bienvenido a Gamers" />
       <Item/>
     </div>
   );
