@@ -1,27 +1,25 @@
-import React,{useState} from 'react'
-import ItemCount from './ItemCount'
+import React from "react";
+import img from "../images/fifa21.jpg";
+import ItemCount from "./ItemCount";
 
-const Item = ({producto}) => {
-const [show, setShow]=useState(false)
-
-const verMas = () =>{
-    console.log(show)
-    setShow(!show)
-}
-const onAdd = () =>{
-    console.log('agregué al carrito')
-}
+function Item({ titulo, precio, stock, i }) {
   return (
-      <div className="card" style={{width:' 18rem'}}>
-          <div className="card-body">
-          {show && <h4 className="card-text">{producto.name}</h4>}
-              {show && <p className="card-text">{producto.description}</p>}
-              {show && <p className="card-text">{producto.price}</p>}
-                <button onClick={verMas}>{show ? 'Ver menos' : 'Ver mas'}</button>
-                <ItemCount stock={10} initial={1} onAdd={onAdd}/>
+    <div>
+      <div className="card">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="card-body">
+              <h4 className="card-title">{titulo}</h4>
+              <img src={img} alt="portada juego" width={200}/>
+              <p className="card-text text-secondary">Precio: ${precio}</p>
+            </div>
+            <ItemCount key={i} initial={1} stock={10} />
           </div>
+          <div></div>
+        </div>
       </div>
-  )
+    </div>
+  );
 }
 
-export default Item
+export default Item;
