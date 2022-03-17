@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../images/fifa21.jpg";
+import img from "../images/fifa-22.png";
 import ItemCount from "./ItemCount";
 
 function Item({ titulo, precio, stock, i }) {
