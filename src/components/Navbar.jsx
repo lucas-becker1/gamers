@@ -1,5 +1,5 @@
 import React from 'react'
-import CartWidget from '../CartWidget'
+import CartWidget from './CartWidget'
 
 const Navbar = () => {
   return (
@@ -7,7 +7,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
-                    <img src='./logo-gamers.png' width='80'/>
+                    <img src='./logo-gamers.png' width='100'/>
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-    <CartWidget/>
+    <CartWidget />
     </div>
   )
 }
