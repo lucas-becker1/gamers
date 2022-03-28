@@ -1,45 +1,510 @@
-.App {
-  text-align: center;
-  background-color: #F8F8FF
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*CARD STYLES */
+.wrapper {
+  width: 300px;
+  height: 500px;
+  background: gray;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+  -webkit-transition: -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: box-shadow 0.5s, transform 0.5s;
+  transition: box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s,
+    -webkit-transform 0.5s;
 }
 
-.App .card {
-  background-color: whitesmoke;
-  display: inline-block;
-  padding: 10px
+.wrapper:hover {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wrapper .container {
+  width: 100%;
+  height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper .container .top {
+  height: 80%;
+  width: 100%;
+  background: no-repeat center center;
+  background-size: 100%;
+}
+
+.wrapper .container .bottom {
+  width: 200%;
+  height: 20%;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.wrapper .container .bottom.clicked {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.wrapper .container .bottom h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper .container .bottom p {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper .container .bottom .left {
+  height: 100%;
+  width: 50%;
+  background: #f4f4f4;
+  position: relative;
+  float: left;
+}
+
+.wrapper .container .bottom .left .details {
+  padding: 20px;
+  float: left;
+  width: calc(70% - 40px);
+}
+
+.wrapper .container .bottom .left .buy {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  width: calc(30% - 2px);
+  height: 100%;
+  background: #f1f1f1;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+  border-left: solid thin rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
+.wrapper .container .bottom .left .buy p {
+  text-align: center;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.wrapper .container .bottom .left .buy:hover {
+  background: #a6cdde;
+}
+
+.wrapper .container .bottom .left .buy:hover i {
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  color: #00394b;
+}
+
+.wrapper .container .bottom .right {
+  width: 50%;
+  background: #a6cdde;
+  color: white;
+  float: right;
+  height: 200%;
+  overflow: hidden;
+}
+
+.wrapper .container .bottom .right .details {
+  padding: 20px;
+  float: right;
+  width: calc(70% - 40px);
+}
+
+.wrapper .container .bottom .right .done {
+  width: calc(30% - 2px);
+  float: left;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  border-right: solid thin rgba(255, 255, 255, 0.3);
+  height: 50%;
+}
+
+.wrapper .container .bottom .right .done i {
+  font-size: 30px;
+  padding: 30px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper .container .bottom .right .remove {
+  width: calc(30% - 1px);
+  clear: both;
+  border-right: solid thin rgba(255, 255, 255, 0.3);
+  height: 50%;
+  background: #bc3b59;
+  -webkit-transition: background 0.5s, -webkit-transform 0.5s;
+  transition: background 0.5s, -webkit-transform 0.5s;
+  transition: transform 0.5s, background 0.5s;
+  transition: transform 0.5s, background 0.5s, -webkit-transform 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.wrapper .container .bottom .right .remove:hover {
+  background: #9b2847;
+}
+
+.wrapper .container .bottom .right .remove:hover i {
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+}
+
+.wrapper .container .bottom .right .remove i {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  font-size: 30px;
+  padding: 30px;
+  color: white;
+}
+
+.wrapper .container .bottom .right:hover .remove,
+.wrapper .container .bottom .right:hover .done {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+.wrapper .inside {
+  z-index: 9;
+  background: #92879b;
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  border-radius: 0px 0px 200px 200px;
+  -webkit-transition: all 0.5s, border-radius 2s, top 1s;
+  transition: all 0.5s, border-radius 2s, top 1s;
+  overflow: hidden;
+}
+
+.wrapper .inside .icon {
+  position: absolute;
+  right: 85px;
+  top: 85px;
+  color: white;
+  opacity: 1;
+}
+
+.wrapper .inside:hover {
+  width: 100%;
+  right: 0;
+  top: 0;
+  border-radius: 0;
+  height: 80%;
+}
+
+.wrapper .inside:hover .icon {
+  opacity: 0;
+  right: 15px;
+  top: 15px;
+}
+
+.wrapper .inside:hover .contents {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.wrapper .inside .contents {
+  padding: 5%;
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform: translateY(-200%);
+  transform: translateY(-200%);
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.8s;
+  transition: opacity 0.2s, -webkit-transform 0.8s;
+  transition: opacity 0.2s, transform 0.8s;
+  transition: opacity 0.2s, transform 0.8s, -webkit-transform 0.8s;
+}
+
+.wrapper .inside .contents table {
+  text-align: left;
+  width: 100%;
+}
+
+.wrapper .inside .contents h1,
+.wrapper .inside .contents p,
+.wrapper .inside .contents table {
+  color: white;
+}
+
+.wrapper .inside .contents p {
+  font-size: 13px;
+}
+
+/*ITEM DETAIL STYLES*/
+.card:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  display: flex;
+
+  width: 600px;
+  background-color: red;
+  margin: 60px auto;
+  padding: 10px;
+}
+
+img {
+  width: 80%;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0px 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: "Coda";
+  text-align: center;
+  color: #2e3849;
+}
+
+h2 {
+  font-family: "Lato";
+  color: #8f9491;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+p {
+  font-family: "Open Sans";
+  color: #8f9491;
+  font-size: 0.9rem;
+}
+
+.open {
+  font-family: "Open Sans";
+  color: #8f9491;
+  font-size: 0.8rem;
+}
+
+#price1 {
+  display: block;
+  font-family: "Lato";
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+#green-arrow a {
+  text-decoration: none;
+  display: block;
+  font-size: 2rem;
+  color: #38e4ae;
+  padding-left: 10px;
+}
+
+p {
+  margin-top: 5px;
+}
+
+.stock {
+  font-family: "Lato";
+  font-weight: bold;
+  color: #2e3849;
+}
+
+.fa-star {
+  color: #edc368;
+}
+
+#grey,
+.arrow {
+  color: #8f9491;
+}
+
+.arrow {
+  font-size: 2.5rem;
+  font-family: "Open Sans";
+  background-color: white;
+  border: 0;
+}
+
+#number {
+  font-size: 1.8rem;
+  font-family: "Lato";
+}
+
+#quantity {
+  font-size: 1.3rem;
+  font-family: "Lato";
+}
+
+#cart {
+  background-color: #38e4ae;
+  border: 0;
+  color: white;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.counter button {
+  width: 20px;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.red {
+  background-color: red;
+  width: 70vw;
+  height: 50vh;
+}
+
+.blue {
+  background-color: blue;
+  width: 30vw;
+  height: 99vh;
+}
+
+.yellow {
+  background-color: yellow;
+  width: 50vw;
+  height: 90vh;
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.btn {
+  line-height: 50px;
+  height: 100px;
+  text-align: center;
+  width: 400px;
+  cursor: pointer;
+}
+.btn-two {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: black;
+  transition: all 0.5s;
+  position: relative;
+}
+.btn-two span {
+  z-index: 2;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+}
+.btn-two::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid red;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btn-two::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid red;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btn-two:hover::before {
+  transform: rotate(-45deg);
+  background-color: rgba(255, 255, 255, 0);
+}
+.btn-two:hover::after {
+  transform: rotate(45deg);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/*LOADER STYLES */
+#container {
+  width: 70px;
+  height: 35px;
+  overflow: hidden;
+  position: absolute;
+  top: calc(50% - 17px);
+  left: calc(50% - 35px);
+}
+#loader {
+  width: 70px;
+  height: 70px;
+  border-style: solid;
+  border-top-color: #fff;
+  border-right-color: #fff;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotate 3s ease-in-out infinite;
+  transform: rotate(-200deg);
+}
+@keyframes rotate {
+  0% {
+    border-width: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    border-width: 3px;
+  }
+  50% {
+    transform: rotate(115deg);
+    border-width: 10px;
+  }
+  75% {
+    border-width: 3px;
+  }
+  100% {
+    border-width: 10px;
   }
 }

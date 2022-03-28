@@ -1,25 +1,28 @@
 import React from "react";
-import img from "../images/fifa-22.png";
-import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
 
-function Item({ titulo, precio, stock, i }) {
+const Item = ({ id, name, description, price, stock, imgUrl, category }) => {
   return (
-    <div>
-      <div className="card">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="card-body">
-              <h4 className="card-title">{titulo}</h4>
-              <img src={img} alt="portada juego" width={200}/>
-              <p className="card-text text-secondary">Precio: ${precio}</p>
+    <div className="wrapper">
+      <div className="container">
+        <div
+          className="top"
+          style={{ backgroundImage: `url("${imgUrl}")` }}
+        ></div>
+        <div className="bottom">
+          <div className="left">
+            <div className="details">
+              <h1>{name}</h1>
+              <p>${price}</p>
             </div>
-            <ItemCount key={i} initial={1} stock={10} />
+            <Link to={`/detail/${id}`} className="buy">
+              Mas Detalles
+            </Link>
           </div>
-          <div></div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Item;

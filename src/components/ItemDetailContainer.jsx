@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import ItemList from "./ItemList";
+import React, { useState, useEffect } from "react";
+import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-const ItemListContainer = () => {
-  const { category } = useParams();
-  console.log(category);
+const ItemDetailContainer = () => {
+  const { itemId } = useParams();
+  const [producto, setProducto] = useState({});
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const ItemListContainer = () => {
             price: 8000,
             stock: 10,
             imgUrl: "https://i.ibb.co/Jsrbxb0/fifa-22.png",
-            categoryId: "FIFA 22",
+            categoryId: "Juegos de deporte",
           },
           {
             id: 2,
@@ -27,7 +27,7 @@ const ItemListContainer = () => {
             stock: 10,
             imgUrl:
               "https://i.ibb.co/5hgS1R2/nba-2k22.jpg",
-            categoryId: "NBA 2K22",
+            categoryId: "Juegos de deporte",
           },
           {
             id: 3,
@@ -37,27 +37,17 @@ const ItemListContainer = () => {
             stock: 10,
             imgUrl:
               "https://i.ibb.co/k59ktbs/elden-ring.jpg",
-            categoryId: "ELDER RING",
+            categoryId: "Juegos de rol",
           },
         ]);
       }, 3000);
     });
-    if (!category) {
-      obtenerProductos.then((res) => setProductos(res));
-    } else {
-      obtenerProductos.then((res) => {
-        setProductos(
-          res.filter((productos) => productos.categoryId === category)
-        );
-      });
-    }
-  }, [category]);
 
-  return (
-    <>
-      <ItemList productos={productos} />
-    </>
-  );
+    obtenerProductos.then((res) => {
+      setProducto(res.find((e) => e.id == itemId));
+    });
+  }, []);
+  return <ItemDetail {...producto} />;
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;
