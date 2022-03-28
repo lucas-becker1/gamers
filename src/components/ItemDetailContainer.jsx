@@ -40,7 +40,7 @@ const ItemDetailContainer = () => {
             categoryId: "Juegos de rol",
           },
         ]);
-      }, 3000);
+      }, 2000);
     });
 
     obtenerProductos.then((res) => {

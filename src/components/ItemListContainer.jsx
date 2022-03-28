@@ -40,7 +40,7 @@ const ItemListContainer = () => {
             categoryId: "ELDER RING",
           },
         ]);
-      }, 3000);
+      }, 2000);
     });
     if (!category) {
       obtenerProductos.then((res) => setProductos(res));

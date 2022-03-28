@@ -1,3 +1,5 @@
+Este proyecto es un e-commerce de una tienda de videojuegos para pc llamado "Gamers". Para ello utilice Bootstrap y React JS. GIF https://www.loom.com/share/db87b6aa228545fcab9055d41fc4e3b7
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
