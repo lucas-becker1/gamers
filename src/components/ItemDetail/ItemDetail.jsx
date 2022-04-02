@@ -3,9 +3,9 @@ import { ItemCount } from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 
-const ItemDetail = ({ product, initial }) => {
-  const { title, description, price, stock, descriptionlong, pictureUrl } =
-    product;
+const ItemDetail = ({ producto, initial }) => {
+  const { title, description, price, stock, pictureUrl } =
+    producto;
   const [quantity, setQuantity] = useState(initial);
   const [finishBuy, setFinishBuy] = useState(false);
   const [items, setItems] = useState(1);
@@ -21,7 +21,7 @@ const ItemDetail = ({ product, initial }) => {
   // };
 
   const onAdd = () => {
-    agregarAlCarrito(product, items, quantity);
+    agregarAlCarrito(producto, items, quantity);
     setQuantity(initial);
     Swal.fire("Ya lo tenes en el carrito", "Seguir comprando!", "success");
     // alert(`Agregaste ${items} producto(s) al carrito`);
@@ -34,9 +34,8 @@ const ItemDetail = ({ product, initial }) => {
         <img src={pictureUrl} alt="" />
         {/* <p>{title}</p> */}
         <p>{description}</p>
-        <p>{descriptionlong}</p>
         <hr />
-        <p>Precio en USD: {price}</p>
+        <p>Precio: {price}</p>
 
         {finishBuy > 0 && (
           <Link to="/cart">

@@ -47,7 +47,7 @@ const ItemDetailContainer = () => {
       setProducto(res.find((e) => e.id == itemId));
     });
   }, []);
-  return <ItemDetail {...producto} />;
+  return <ItemDetail producto={producto} />;
 };
 
 export default ItemDetailContainer;
